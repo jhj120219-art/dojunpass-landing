@@ -469,6 +469,16 @@
     form{padding:26px 20px;}
   }
 </style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REYBVJCSZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-REYBVJCSZT');
+</script>
+
 </head>
 <body>
 
@@ -914,8 +924,8 @@
 
     function showSuccess(){
       // GA4 이벤트 예시 (실배포 시 gtag 로드 후 아래 주석 해제)
-      // gtag('event', 'form_submit', { form_id: 'apply' });
-      // Meta Pixel 이벤트 예시
+      gtag('event', 'form_submit', { form_id: 'apply' });
+      // Meta Pixel 이벤트 예시 (Meta Pixel 설치 후 아래 주석 해제)
       // fbq('track', 'Lead');
 
       document.getElementById('formFields').style.display = 'none';
@@ -950,7 +960,7 @@
   // ---------- CTA 클릭 GA4 이벤트 훅 (실배포 시 주석 해제) ----------
   document.querySelectorAll('a.btn-primary').forEach(function(btn){
     btn.addEventListener('click', function(){
-      // gtag('event', btn.id === 'heroCta' ? 'cta_click_hero' : 'cta_click_bottom');
+      gtag('event', btn.id === 'heroCta' ? 'cta_click_hero' : 'cta_click_bottom');
     });
   });
 </script>
